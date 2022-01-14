@@ -1,0 +1,9 @@
+export const THEME_TEXT_COLOR =  '#3e3f40'
+export const THEME_WHITE = '#fefefe'
+export const THEME_RED = "#cf2d31"
+export const THEME_GREY = '#3e3f40'
+export const THEME_LIGHT_GREY = '#999394'
+export const THEME_SMOKE_WHITE = '#d1cfcf'
+export const THEME_SMOKE_BLACK = '#000000'
+export const THEME_LARGE_FONT = 55
+export const THEME_TRANSPARENT_RED = "rgba(196, 43, 49, 0.9)"
