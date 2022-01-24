@@ -10,72 +10,69 @@ export default function LeadershipAcademy() {
   return (
     <div className="container">
       <SectionHeader txt={"LEADERSHIP ACADEMY"} />
-      <Box>
+      <Box sx={{
+        fontSize:18,
+        lineHeight:'1.8rem'
+      }}>
         <Grid container columnSpacing={8} justifyContent="center">
           <Grid item xs={12} md={4}>
             <div
               style={{
                 height: "100%",
-                background: "green",
+                marginBottom:10,
               }}
             >
-              <img
-                src={"/images/10.jpg"}
+              <div
+                className="leadership-academy-responsive-image"
                 style={{
-                  height: "100%",
-                  width: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-              />
+                  minHeight:'50vh',
+                  backgroundSize: "cover",
+                  backgroundImage:`url("/images/33.jpeg")`
+                }}></div>
             </div>
           </Grid>
           <Grid item xs={12} md={4}>
             <div
               style={{
                 height: "100%",
-                background: "green",
+                marginBottom:10,
               }}
             >
-              <img
-                src={"/images/8.jpg"}
+              <div
+                className="leadership-academy-responsive-image"
                 style={{
-                  height: "100%",
-                  width: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-              />
+                  minHeight:'50vh',
+                  backgroundSize: "cover",
+                  backgroundImage:`url("/images/8.jpg")`
+                }}></div>
             </div>
           </Grid>
           <Grid item xs={12} md={4}>
             <div
               style={{
                 height: "100%",
-                background: "green",
+                marginBottom:10,
               }}
             >
-              <img
-                src={"/images/33.jpeg"}
+              <div
+                className="leadership-academy-responsive-image"
                 style={{
-                  height: "100%",
-                  width: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-              />
+                  minHeight:'50vh',
+                  backgroundSize: "cover",
+                  backgroundImage:`url("/images/10.jpg")`
+                }}></div>
             </div>
           </Grid>
         </Grid>
 
         <p style={{ fontSize: 20, marginBottom: 20, marginTop: 30 }}>
-          <span style={{ color: "red" }}>
+          <span style={{ color: "#cf2d31",fontWeight:600 }}>
             “Everything rises and falls on leadership”
           </span>
           – John C Maxwell
         </p>
 
-        <p style={{ marginBottom: 20, width: "60%" }}>
+        <p style={{ marginBottom: 20, }}>
           Without direction people run amuck. One of the problems we have is
           that there are no leaders and when they do rise, they are not mentored
           and lead others to crime, corruption and even to destruction. We
@@ -85,7 +82,7 @@ export default function LeadershipAcademy() {
           dream.
         </p>
 
-        <p style={{ marginBottom: 20, width: "60%" }}>
+        <p style={{ marginBottom: 20, }}>
           We focus on training days to teach and build teams and help them to
           cast vision and then achieve them by mentoring others to keep the
           legacy going. These once-off training sessions look towards potential

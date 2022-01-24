@@ -1,6 +1,6 @@
 import { THEME_TEXT_COLOR } from "../constants"
 
-export default ({txt, hidden}) => {
+const SectionHeader = ({txt, hidden}) => {
     const splitArr = txt.toUpperCase().split(' ')
     const firstWord = splitArr[0]
             splitArr.shift()
@@ -23,3 +23,5 @@ export default ({txt, hidden}) => {
         </div>
     )
 }
+
+export default SectionHeader

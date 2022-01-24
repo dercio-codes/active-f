@@ -28,8 +28,7 @@ export default function VideoPlayer({ videoImage, index }) {
     "/videos/Kenny_1.MOV",
   ];
   const [currentIndex, setCurrentIndex] = useState(index);
-  console.log(index,"index")
-  console.log(currentIndex,"current")
+ 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,7 +36,6 @@ export default function VideoPlayer({ videoImage, index }) {
   function Decrement() {
     if (currentIndex > 0) {
       setCurrentIndex((currentIndex) => currentIndex - 1);
-      console.log(currentIndex);
     } else {
       setCurrentIndex(0);
     }
@@ -46,7 +44,6 @@ export default function VideoPlayer({ videoImage, index }) {
   function Increment() {
     if (currentIndex < currentTestimonies.length - 1) {
       setCurrentIndex((currentIndex) => currentIndex + 1);
-      console.log(currentIndex);
     }
   }
 

@@ -24,17 +24,15 @@ export default function DrawerNav({ openDrawer, toggleDrawer }) {
         >
           <List>
             <ListItem button>
-              <img
-                src={
-                  "http://www.activefoundation.co.za/img/active%20foundation%20logo2.png"
-                }
-                style={{
-                  height: 80,
-                  width: "100%",
-                  objectFit: "contain",
-                  opacity: 0.85,
-                }}
-              />
+            <div
+            style={{
+              width: 180,
+              height: "100%",
+              backgroundImage:`url("http://www.activefoundation.co.za/img/active%20foundation%20logo2.png")`,
+              backgroundSize: "contain",
+              opacity: 0.85,
+            }}
+          />
             </ListItem>
 
             <ListItem button>

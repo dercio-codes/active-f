@@ -5,7 +5,7 @@ import SectionHeader from "../SectionHeader";
 import WhatWeDoItem from "./WhatWeDoItem";
 import { THEME_TRANSPARENT_RED } from "../../constants";
 
-export default () => {
+const WhatWeDoSection = ()=> {
   return (
     <div className="container">
       <Box sx={{ flexGrow: 1 }}>
@@ -145,3 +145,5 @@ export default () => {
     </div>
   );
 };
+
+export default WhatWeDoSection;

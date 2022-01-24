@@ -12,39 +12,31 @@ export default function SowHopeSection() {
         }}
       >
         <Grid container columnSpacing={8} justifyContent="center">
-          <Grid item xs={12} md={4}>
-            <div
+          <Grid item xs={12} lg={4}>
+            <div className="sow-hope-responsive-grid">
+              <div className="sow-hope-responsive-image "
               style={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
+                backgroundSize: "cover",
+                backgroundImage:`url('/images/4.jpg')`
               }}
-            >
-              <div>
-                <img
-                  src="/images/4.jpg"
-                  style={{
-                    width: "100%",
-                    height: "48vh",
-                    objectFit: "cover",
-                  }}
-                />
+              >
+                
               </div>
 
-              <div>
-                <img
-                  src="/images/5.jpg"
-                  style={{
-                    width: "100%",
-                    height: "48vh",
-                    objectFit: "cover",
-                  }}
-                />
+              <div className="sow-hope-responsive-image "
+                style={{
+                  // width: "100%",
+                  // height: "48vh",
+                  backgroundSize: "cover",
+                  backgroundImage:`url('/images/5.jpg')`
+                }}
+              
+              >
+        
               </div>
             </div>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} lg={4}>
             <div
               style={{
                 display: "flex",
@@ -58,6 +50,8 @@ export default function SowHopeSection() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                minHeight:'65vh',
+                lineHeight:'1.8rem'
               }}
             >
               <p>
@@ -79,46 +73,42 @@ export default function SowHopeSection() {
 
               <br/>
 
-              <img
-                src="/icons/sow-hope.png"
+              <div
                 style={{
                   width: 100,
                   height: 100,
-                  objectFit: "cover",
+                  backgroundImage:`url("/icons/sow-hope.png")`,
+                  backgroundSize: "cover",
                 }}
               />
             </div>
           </Grid>
 
-          <Grid item xs={12} md={4}>
-            <div
-              style={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
-            >
-              <div>
-                <img
-                  src="/images/23.jpeg"
-                  style={{
-                    width: "100%",
-                    height: "50vh",
-                    objectFit: "cover",
-                  }}
-                />
+          <Grid item xs={12} lg={4}>
+          <div className="sow-hope-responsive-grid-2">
+
+              <div className="sow-hope-responsive-image sow-hope-responsive-image-2"
+                style={{
+                  backgroundSize: "cover",
+                  backgroundPosition:'center',
+                  backgroundRepeat:'no-repeat',
+                  backgroundImage:`url('/images/23.jpeg')`
+                }}
+              
+              >
+              
               </div>
 
-              <div>
-                <img
-                  src="/images/1.jpg"
-                  style={{
-                    width: "100%",
-                    height: "50vh",
-                    objectFit: "cover",
-                  }}
-                />
+              <div className="sow-hope-responsive-image sow-hope-responsive-image-2"
+                style={{
+                  backgroundSize: "cover",
+                  backgroundPosition:'center',
+                  backgroundRepeat:'no-repeat',
+                  backgroundImage:`url('/images/1.jpg')`
+                }}
+
+              >
+                
               </div>
             </div>
           </Grid>

@@ -4,8 +4,7 @@ export default function SowHopeItem({ img }) {
   return (
     <Box
       sx={{
-        minHeight: "40vh",
-        height: "50%",
+        minHeight: "50vh",
         width: "100%",
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",

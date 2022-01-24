@@ -2,7 +2,7 @@ import Typography from "@mui/material/Typography";
 import PaygateFooter from "../components/PaygateFooter";
 import SectionHeader from "../components/SectionHeader";
 
-export default () => {
+function terms (){
   return (
     <div className="container">
       <SectionHeader txt="Terms and Conditions" />
@@ -25,7 +25,7 @@ export default () => {
         detailed in the Promotion of Access to Information Act 2 of 2000 (PAIA).
         The PAIA may be downloaded from:
         http://www.polity.org.za/attachment.php?aa_id=3569. <br />
-        6. Payment options accepted Payment may be made via Visa and MasterCard.{" "}
+        6. Payment options accepted Payment may be made via Visa and MasterCard.
         <br />
         7. Card acquiring and security Card transactions will be acquired for
         The Active Foundation Trust via PayGate (Pty) Ltd who are the approved
@@ -36,7 +36,7 @@ export default () => {
         policy. <br />
         8. Customer details separate from card details Customer details will be
         stored by The Active Foundation Trust separately from card details which
-        are entered by the client on PayGate’s secure site. For more detail on
+        are entered by the client on PayGate`s secure site. For more detail on
         PayGate refer to www.paygate.co.za. <br />
         9. Merchant Outlet country and transaction currency The merchant outlet
         country at the time of presenting payment options to the cardholder is
@@ -51,7 +51,7 @@ export default () => {
         of court process, notice, or other documents or communication of
         whatsoever nature: 1 Example Street, Pretoria, 0184. <br />
         12. Variation The Active Foundation Trust may, in its sole discretion,
-        change this agreement or any part thereof at any time without notice.{" "}
+        change this agreement or any part thereof at any time without notice
         <br />
         13. Company information This website is run by close corpoaration based
         in South Africa Trading trading as Super Clothing and with registration
@@ -76,3 +76,5 @@ export default () => {
     </div>
   );
 };
+
+export default terms;

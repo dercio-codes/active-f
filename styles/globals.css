@@ -19,3 +19,51 @@ a {
 .container{
     padding: 40px 30px;
 }
+.tncs{
+  opacity: 0.6;
+}
+.tncs:hover{
+  color:#231f20;
+  opacity: 1;
+}
+#form-iframe{
+  border:none;
+}
+.sow-hope-responsive-image , .leadership-academy-responsive-image{
+  height:50vh;
+  width:100%;
+}
+.sow-hope-responsive-grid , .sow-hope-responsive-grid-2{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+@media (max-width:900px) {
+  #form-image{
+    height:100px;
+  }
+  .sow-hope-responsive-image {
+    width:48%;
+    margin:10px 0;
+  }
+  .sow-hope-responsive-grid , .sow-hope-responsive-grid-2{
+    height:100%;
+    display:flex;
+    flex-direction:row !important;
+  }
+}
+@media (max-width:600px) {
+  #form-image{
+    height:100px;
+  }
+  .sow-hope-responsive-image-2{
+    width:100%;
+    margin:10px 0;
+  }
+  .sow-hope-responsive-grid-2{
+    height:100%;
+    display:flex;
+    flex-direction:column !important;
+  }
+}

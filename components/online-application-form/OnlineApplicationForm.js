@@ -12,7 +12,11 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Link from "next/link";
 import Checkbox from "@mui/material/Checkbox";
-import Typography from "@mui/material/Typography"; 
+import Typography from "@mui/material/Typography";
+import axios from "axios";
+import { useSnackbar } from "notistack";
+import Slide from '@material-ui/core/Slide';
+
 
 const style = {
   position: "absolute",
@@ -25,6 +29,7 @@ const style = {
 };
 
 export default function OnlineApplicationForm() {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [formFields, setFormFields] = React.useState({
     name: "",
     surname: "",
@@ -33,14 +38,74 @@ export default function OnlineApplicationForm() {
     reference: "",
   });
 
-  const [checkbox,setCheckBox] = React.useState(false)
+  const [processing, setIsProcessing] = React.useState(false);
 
-  const handleCheckbox = () => {
-    if(checkbox === false ) setCheckBox(true)
-    else setCheckBox(false)
+  const handlSubmit = (e) => {
+    e.preventDefault();
+    setIsProcessing(true);
 
-    console.log(checkbox)
-  }
+    const formElements = e.target.elements;
+
+    axios
+      .post("/api/OnlineApplicationSubmit", {
+        name: formElements["name"].value,
+        surname: formElements["surname"].value,
+        email: formElements["email"].value,
+        number: formElements["number"].value,
+        reference: formElements["reference"].value,
+      })
+      .then((res) => {
+        if (res.data.message == "MAIL_SENT") {
+          enqueueSnackbar("Email successfully sent", {
+            variant: "success",
+            anchorOrigin: {
+              vertical: "top",
+              horizontal: "center",
+            },
+            TransitionComponent: Slide,
+          });
+
+          formElements["name"].value = "";
+          formElements["surname"].value = "";
+          formElements["email"].value = "";
+          formElements["number"].value = "";
+          formElements["reference"].value = "";
+
+          setIsProcessing(false);
+          setFormFields({
+            name: "",
+            surname: "",
+            email: "",
+            number: "",
+            reference: "",
+          });
+        } else {
+          enqueueSnackbar(`Failed to send email : ${res.data.err.message}`, {
+            variant: "error",
+            anchorOrigin: {
+              vertical: "top",
+              horizontal: "center",
+            },
+            TransitionComponent: Slide,
+          });
+
+          setIsProcessing(false);
+        }
+      })
+      .catch((err) => {
+        enqueueSnackbar(`Failed to send email : ${err.message}`, {
+          variant: "error",
+          anchorOrigin: {
+            vertical: "top",
+            horizontal: "center",
+          },
+          TransitionComponent: Slide,
+        });
+
+        setIsProcessing(false);
+      });
+
+  };
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -104,109 +169,126 @@ export default function OnlineApplicationForm() {
                         sx={{
                           width: "100%",
                           height: "100%",
-                          padding: 8,
+                          padding: 6,
                           display: "flex",
                           justifyContent: "space-around",
                           flexDirection: "column",
                         }}
                       >
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                          }}
-                        >
+                        <Box>
                           <SecondarySectionHeader txt={"Online Application"} />
                         </Box>
-                        <FormControl>
-                          <TextField
-                            onChange={handleChange}
-                            id="standard-basic"
-                            label="Name"
-                            variant="standard"
-                            name="name"
-                          />
-                        </FormControl>
-                        <FormControl>
-                          <TextField
-                            onChange={handleChange}
-                            id="standard-basic"
-                            label="Surname"
-                            variant="standard"
-                            name="surname"
-                          />
-                        </FormControl>
-
-                        <FormControl>
-                          <TextField
-                            onChange={handleChange}
-                            id="standard-basic"
-                            label="Email"
-                            variant="standard"
-                            type="email"
-                            name="email"
-                          />
-                        </FormControl>
-
-                        <FormControl>
-                          <TextField
-                            onChange={handleChange}
-                            id="standard-basic"
-                            label="Phone Number"
-                            variant="standard"
-                            type="tel"
-                            name="number"
-                          />
-                        </FormControl>
-
-                        <FormControl variant="standard">
-                          <InputLabel id="demo-simple-select-standard-label">
-                            Reference
-                          </InputLabel>
-                          <Select
-                            labelId="demo-simple-select-standard-label"
-                            id="demo-simple-select-standard"
-                            name="reference"
-                            onChange={handleChange}
-                            label="Reference"
-                            value={formFields.reference}
-                          >
-                            <MenuItem value="">
-                              <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={"sow-hope"}>Sow Hope</MenuItem>
-                            <MenuItem value={"study-centre"}>
-                              Study Centre
-                            </MenuItem>
-                            <MenuItem value={"leadership-academy"}>
-                              Leadership Academy
-                            </MenuItem>
-                            <MenuItem value={"tons-of-love"}>
-                              Tons of Love
-                            </MenuItem>
-                          </Select>
-                        </FormControl>
-
-                          <br />
-                        <Link href="/terms" target="_blank" style>
-                          <a target="_blank"  style={{opacity:"0.7"}}>Terms and Conditions</a>
-                        </Link>
+                        <form
+                          target="_blank"
+                          method="POST"
+                          onSubmit={handlSubmit}
+                          style={{
+                            display: "flex",
+                          justifyContent: "space-around",
+                          height:'100%',
+                          flexDirection: "column",
+                          padding:2,
+                          }}
+                        >
                           
-                        <Box sx={{display:"flex",alignItems:"center"}}>
-                          <Checkbox checked={checkbox} required onChange={handleCheckbox} name="termsAndConditions" />
-                          <Typography>
-                            {" "}
-                            I have read and accept the{" "}
-                            <Link href="/terms" >
-                              <a target="_blank" style={{opacity:"0.7"}}>Terms and Conditions</a>
-                            </Link>{"."}
-                          </Typography>
-                        </Box>
+                          <FormControl>
+                            <TextField
+                              onChange={handleChange}
+                              id="standard-basic"
+                              label="Name"
+                              variant="outlined"
+                              name="name"
+                            />
+                          </FormControl>
 
-                        <Button variant="contained" endIcon={<SendIcon />}>
-                          Submit
-                        </Button>
+                          <FormControl>
+                            <TextField
+                              onChange={handleChange}
+                              id="standard-basic"
+                              label="Surname"
+                              variant="outlined"
+                              name="surname"
+                            />
+                          </FormControl>
+
+                          <FormControl>
+                            <TextField
+                              onChange={handleChange}
+                              id="standard-basic"
+                              label="Email"
+                              variant="outlined"
+                              type="email"
+                              name="email"
+                            />
+                          </FormControl>
+
+                          <FormControl>
+                            <TextField
+                              onChange={handleChange}
+                              id="standard-basic"
+                              label="Phone Number"
+                              variant="outlined"
+                              type="tel"
+                              name="number"
+                            />
+                          </FormControl>
+
+                          <FormControl variant="outlined">
+                            <InputLabel id="demo-simple-select-standard-label">
+                              Reference
+                            </InputLabel>
+                            <Select
+                              labelId="demo-simple-select-standard-label"
+                              id="demo-simple-select-standard"
+                              name="reference"
+                              onChange={handleChange}
+                              label="Reference"
+                              value={formFields.reference}
+                            >
+                              <MenuItem value="">
+                                <em>None</em>
+                              </MenuItem>
+                              <MenuItem value={"sow-hope"}>Sow Hope</MenuItem>
+                              <MenuItem value={"study-centre"}>
+                                Study Centre
+                              </MenuItem>
+                              <MenuItem value={"leadership-academy"}>
+                                Leadership Academy
+                              </MenuItem>
+                              <MenuItem value={"tons-of-love"}>
+                                Tons of Love
+                              </MenuItem>
+                            </Select>
+                          </FormControl>
+
+
+                          <Link href="/terms" target="_blank" >
+                            <a target="_blank" className="tncs" >
+                              Terms and Conditions
+                            </a>
+                          </Link>
+
+                          <Box sx={{ display: "flex", alignItems: "center" , justifyContent:'flex-start' }}>
+                            <Checkbox
+                              required
+                              name="termsAndConditions"
+                            />
+                            <Typography>
+                              {" "}
+                              I have read and accept the{" "}
+                              <Link href="/terms">
+                                <a target="_blank" className="tncs" >
+                                  Terms and Conditions
+                                </a>
+                              </Link>
+                              {"."}
+                            </Typography>
+                          </Box>
+
+                          <Button variant="contained" type="submit" endIcon={<SendIcon />}>
+                          {processing ? "Processing..." : "Submit"}
+                          </Button>
+                        </form>
                       </Box>
                     </Box>
                   </Grid>

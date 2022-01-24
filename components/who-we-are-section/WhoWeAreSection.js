@@ -73,16 +73,17 @@ const WhoWeAreSection = () => {
           </Grid>
         </Grid>
 
-        <Grid item md={4}>
-          <img
-            src={"/images/14.jpg"}
+        <Grid item xs={12} md={4}>
+        <div
             style={{
               height: "100vh",
-              width: "100%",
-              objectFit: "cover",
-              objectPosition: "center",
+              width: "100",
+              backgroundImage:`url("/images/14.jpg")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           />
+            
         </Grid>
       </Grid>
     </div>

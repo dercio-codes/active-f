@@ -1,6 +1,6 @@
 import { THEME_TEXT_COLOR } from "../constants";
 
-export default ({ txt }) => {
+ const SecondarySectionHeader = ({ txt }) => {
   const splitArr = txt.toUpperCase().split(" ");
   const firstWord = splitArr[0];
   splitArr.shift();
@@ -27,3 +27,5 @@ export default ({ txt }) => {
     </div>
   );
 };
+
+export default SecondarySectionHeader;

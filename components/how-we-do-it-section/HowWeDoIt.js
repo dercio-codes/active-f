@@ -8,13 +8,14 @@ import SectionHeader from "../SectionHeader";
 import HowWeDoItItem from "./HowWeDoItItem";
 import DonateForm from "../donate-form/DonateForm"
 import OnlineApplicationForm from "../online-application-form/OnlineApplicationForm";
+import YearOfMyLifeForm from "../year-of-my-life-form/yearOfMyLifeForm";
 
 export default function RowAndColumnSpacing() {
   return (
     <div className="container">
       <Box sx={{ width: "100%", position: "relative", marginBottom:5 }}>
       
-        <SectionHeader txt="How We Do it" />
+          <SectionHeader txt="How We Do it" />
 
         <Grid
           container
@@ -36,7 +37,6 @@ export default function RowAndColumnSpacing() {
                 padding: 8,
               }}
             >
-              {/* <Button variant="contained">ONLINE APPLICATION</Button> */}
               <OnlineApplicationForm />
             </div>
           </Grid>
@@ -57,7 +57,8 @@ export default function RowAndColumnSpacing() {
                 padding: 8,
               }}
             >
-              <Button variant="contained">YEAR OF MY LIFE</Button>
+              <YearOfMyLifeForm />
+              {/* <Button variant="contained">YEAR OF MY LIFE</Button> */}
             </div>
           </Grid>
           <br />

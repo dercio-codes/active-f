@@ -56,12 +56,12 @@ const BannerSection = () => {
           ONE BLOCK CAN CHANGE A NATION
         </p>
         <div>
-          <img
-            src="/images/active foundation logo2.png"
+          <div
             style={{
               width: 180,
               height: 100,
-              objectFit: "contain",
+              backgroundSize: "contain",
+              backgroundImage:`url("/images/active foundation logo2.png")`,
               opacity: 0.85,
             }}
           />

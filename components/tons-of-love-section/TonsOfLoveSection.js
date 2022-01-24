@@ -39,24 +39,25 @@ const TonsOfLoveSection = () => {
             </Grid>
 
             <Grid item md={6}>
-              <img
-                src={"/images/17.jpg"}
+              <div
                 style={{
                   height: "40vh",
                   width: "70%",
-                  objectFit: "cover",
-                  objectPosition: "center",
+                  backgroundImage:`url("/images/17.jpg")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                   marginBottom: 10,
                 }}
               />
 
-              <img
-                src={"/images/26.jpeg"}
+              <div
                 style={{
                   height: "40vh",
                   width: "70%",
-                  objectFit: "cover",
-                  objectPosition: "center",
+                  backgroundImage:`url("/images/26.jpeg")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  marginBottom: 10,
                 }}
               />
             </Grid>
@@ -64,13 +65,14 @@ const TonsOfLoveSection = () => {
         </Grid>
 
         <Grid item md={4}>
-          <img
-            src={"/images/18.jpg"}
+          <div
             style={{
-              height: "100vh",
-              width: "100%",
-              objectFit: "cover",
-              objectPosition: "center",
+              height: "40vh",
+              width: "70%",
+              backgroundImage:`url("/images/18.jpg")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              marginBottom: 10,
             }}
           />
         </Grid>

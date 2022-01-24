@@ -20,14 +20,12 @@ export default function AppBarNav({ toggleDrawer }) {
             <MenuIcon />
           </Button>
 
-          <img
-            src={
-              "http://www.activefoundation.co.za/img/active%20foundation%20logo2.png"
-            }
+          <div
             style={{
               width: 180,
               height: "100%",
-              objectFit: "contain",
+              backgroundImage:`url("http://www.activefoundation.co.za/img/active%20foundation%20logo2.png")`,
+              backgroundSize: "contain",
               opacity: 0.85,
             }}
           />
